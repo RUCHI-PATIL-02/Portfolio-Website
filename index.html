@@ -2,105 +2,201 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Portfolio - Inspired by Netflix</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Netflix Clone</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      background-color: #141414;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: white;
+      overflow-x: hidden;
+    }
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 60px;
+      background: rgba(20, 20, 20, 0.9);
+      display: flex;
+      align-items: center;
+      padding: 0 30px;
+      z-index: 1000;
+      justify-content: space-between;
+    }
+    .navbar .logo {
+      font-weight: 800;
+      font-size: 24px;
+      color: #e50914; /* Netflix red */
+      cursor: pointer;
+    }
+    .navbar nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    .navbar nav a:hover {
+      color: #e50914;
+    }
+    /* Hero Banner */
+    .hero {
+      position: relative;
+      height: 80vh;
+      background: url('https://assets.nflxext.com/ffe/siteui/vlv3/3d5a45c5-29a0-41c2-bd03-0c66a343a124/aa4933ac-6b60-4d17-8a69-7d44310ee73b/IN-en-20230911-popsignuptwoweeks-perspective_alpha_website_large.jpg') no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 60px 40px 100px 40px;
+      color: white;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 10px;
+      font-weight: 900;
+    }
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 600px;
+      margin-bottom: 20px;
+      font-weight: 400;
+      line-height: 1.4;
+    }
+    .hero button {
+      width: 160px;
+      padding: 12px 0;
+      border: none;
+      background: #e50914;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .hero button:hover {
+      background: #f40612;
+    }
+    /* Movie Rows */
+    .movie-row {
+      margin: 30px 40px;
+    }
+    .movie-row h2 {
+      margin-bottom: 15px;
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+    .movie-row .thumbnails {
+      display: flex;
+      overflow-x: auto;
+      gap: 12px;
+      padding-bottom: 10px;
+      scrollbar-width: thin;
+      scrollbar-color: #e50914 transparent;
+    }
+    .movie-row .thumbnails::-webkit-scrollbar {
+      height: 8px;
+    }
+    .movie-row .thumbnails::-webkit-scrollbar-thumb {
+      background-color: #e50914;
+      border-radius: 4px;
+    }
+    .movie-row .thumbnail {
+      min-width: 160px;
+      max-width: 160px;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    }
+    .movie-row .thumbnail img {
+      width: 100%;
+      border-radius: 6px;
+      display: block;
+    }
+    .movie-row .thumbnail:hover {
+      transform: scale(1.1);
+      z-index: 10;
+      box-shadow: 0 8px 16px rgba(229,9,20,0.8);
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .hero p {
+        font-size: 1rem;
+        max-width: 100%;
+      }
+      .movie-row .thumbnail {
+        min-width: 120px;
+        max-width: 120px;
+      }
+    }
+  </style>
 </head>
 <body>
+
   <header class="navbar">
-    <div class="logo">MyPortfolio</div>
+    <div class="logo">NETFLIX</div>
     <nav>
-      <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Skills</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
-  </header><!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Portfolio - Inspired by Netflix</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header class="navbar">
-    <div class="logo">MyPortfolio</div>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Skills</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
+      <a href="#">Home</a>
+      <a href="#">TV Shows</a>
+      <a href="#">Movies</a>
+      <a href="#">My List</a>
     </nav>
   </header>
 
   <section class="hero">
-    <div class="hero-text">
-      <h1>Hi, I'm a Web Developer</h1>
-      <p>Crafting experiences like Netflix and Spotify.</p>
+    <h1>Stranger Things</h1>
+    <p>When a young boy disappears, his mother, a police chief, and his friends must confront terrifying supernatural forces in order to get him back.</p>
+    <button>Play</button>
+  </section>
+
+  <section class="movie-row">
+    <h2>Trending Now</h2>
+    <div class="thumbnails">
+      <div class="thumbnail">
+        <img src="https://occ-0-1723-1724.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABa7q9jVnlW3GZw4c4LOdEfTZxfAqFKmA9hO6riLOxYl1Nz8NK_yroKW36kZwi6vpHuW-P6bJ4Fz6-A50iB2izT-Zpiw.png?r=cbf" alt="Movie 1"/>
+      </div>
+      <div class="thumbnail">
+        <img src="https://occ-0-1723-1724.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABa2UrsjNKwOfP4Dd9eNq2hxUmrtqf57jsXdnv0q7D0yRGz1uGHTTsyq3xxOvl0zQy9jxHaA1SyZQmJEFnNyFTY-Gg.png?r=d0a" alt="Movie 2"/>
+      </div>
+      <div class="thumbnail">
+        <img src="https://occ-0-1723-1724.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABQWqVvRYl3BlKqbRFFtZ0OLxx9YkVjpZzlnJ3TpTpNcq-L5EcM_wOcOQLaeQ3KUXwTV7QypWiQWv1mRMYkGeIpJZk.png?r=ebc" alt="Movie 3"/>
+      </div>
+      <div class="thumbnail">
+        <img src="https://occ-0-1723-1724.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABTI0OeJG2g3B_JVxN-cWi6dKoLhQdY7xkNJlOo2ksEZ7qIHxpOPXtP-fASVpuKtfNzj6yAJQh6iIaOlb2EF9C7p6.png?r=fc3" alt="Movie 4"/>
+      </div>
+      <div class="thumbnail">
+        <img src="https://occ-0-1723-1724.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABQeYuNGQXOyJBDZlnwwG6nD2uNzLhMPGkRl2-2Ev7xHslSMFt1J6uM9oQo0-xus61slljLTf6cJjPlQHzgGeRQhZt.png?r=cf5" alt="Movie 5"/>
+      </div>
     </div>
   </section>
 
-  <section class="carousel-section">
-    <h2>My Projects</h2>
-    <div class="carousel">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x170" alt="Project 1" />
-        <p>Project One</p>
+  <section class="movie-row">
+    <h2>Popular on Netflix</h2>
+    <div class="thumbnails">
+      <div class="thumbnail">
+        <img src="https://occ-0-1723-1724.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABXgB2yNGvKqjG_T5ECM_C_2t1o67n63r9Erk2RSL_Gk6F_NlR88w2UOac0R03ImKzCB6zw4PXHODaN9elUuE8h77.png?r=522" alt="Movie 6"/>
       </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x170" alt="Project 2" />
-        <p>Project Two</p>
+      <div class="thumbnail">
+        <img src="https://occ-0-1723-1724.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABR6h8fpK-0cLxjZyDXnj-8NVLKfDU-JxgMlqDVFYmU4nFlLBSu58E9XzvFTlEzrvB31zLW9A_wSMYIZDNYxQoHyw.png?r=d97" alt="Movie 7"/>
       </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x170" alt="Project 3" />
-        <p>Project Three</p>
+      <div class="thumbnail">
+        <img src="https://occ-0-1723-1724.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABQZJHTxEbH9Ax6fHtzEYkqpo6vhDBwFT4QqT4YQ6cAVuQzzHGkM3v3XH8r1Mpy1Tq2z2u6z_UOw4W9zixMMLaPzU.png?r=60f" alt="Movie 8"/>
+      </div>
+      <div class="thumbnail">
+        <img src="https://occ-0-1723-1724.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABTc9xQWgY2vLGzFvV8Lr2Ftq0eEJccjL1t47VfTz-BspV_iTvf_tW2tx-jyR9yP7AkaC_4qK7y0g_bVrE0PEq84H.png?r=062" alt="Movie 9"/>
       </div>
     </div>
   </section>
 
-  <footer>
-    <p>&copy; 2025 MyPortfolio. All rights reserved.</p>
-  </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
 
-
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Hi, I'm a Web Developer</h1>
-      <p>Crafting experiences like Netflix and Spotify.</p>
-    </div>
-  </section>
-
-  <section class="carousel-section">
-    <h2>My Projects</h2>
-    <div class="carousel">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x170" alt="Project 1" />
-        <p>Project One</p>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x170" alt="Project 2" />
-        <p>Project Two</p>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x170" alt="Project 3" />
-        <p>Project Three</p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 MyPortfolio. All rights reserved.</p>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
